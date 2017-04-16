@@ -42,7 +42,7 @@ public class Example : MonoBehaviour
 }
 ```
 
-https://github.com/tomoriaki/ugui-script-creator/blob/readme_images/Images/ss.png
+![実行結果](https://github.com/tomoriaki/ugui-script-creator/blob/readme_images/Images/ss.png)
 
 ## 配布ライセンス
 
