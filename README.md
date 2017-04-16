@@ -51,4 +51,5 @@ MIT / X11ライセンスで公開いたします
 ## 使用ライセンス
 
 ugui-script-creatorはUnity-Technologies / UIをベースに作成しています
+
 [Copyright (c) 2014-2015, Unity Technologies](https://bitbucket.org/Unity-Technologies/ui/src/0155c39e05ca5d7dcc97d9974256ef83bc122586/LICENSE?at=5.2&fileviewer=file-view-default)
