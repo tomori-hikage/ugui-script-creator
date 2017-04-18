@@ -1,11 +1,11 @@
 # ugui-script-creator
 
 ugui-script-creatorはuGUIをスクリプトで構築するためのAssetです
+※ 独自のスプライトを使用する場合やエディタ実行のみで使用する場合はResources/ugui-script-creatorフォルダを削除していただいても問題ありません
 
 ## 導入方法
 
 ugui-script-creator.unitypackageをプロジェクトにインポートしてください
-UICreator.csを直接プロジェクトにインポートしていただいても問題ありません
 
 ## 使用方法
 
@@ -43,6 +43,57 @@ public class Example : MonoBehaviour
 ```
 
 ![実行結果](https://github.com/tomoriaki/ugui-script-creator/blob/readme_images/Images/ss.png)
+
+```csharp
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UI.Utility;
+using UniRx;
+
+
+public class Example : MonoBehaviour
+{
+    #region event
+    private void Start()
+    {
+        Canvas canvas = UICreator.CreateCanvas();
+
+
+        Button button = UICreator.CreateButton(canvas.gameObject, "Random", "ランダム");
+        button.GetComponent<RectTransform>().localPosition = Vector3.left * 140f;
+        button.OnClickAsObservable()
+            .Subscribe(_ => Camera.main.backgroundColor = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)));
+
+        Image image = UICreator.CreateImage(canvas.gameObject, "Background");
+        image.rectTransform.localPosition = Vector3.right * 140f;
+        image.color = new Color(250f / 255f, 120f / 255f, 255f / 255f);
+        Toggle toggle = UICreator.CreateToggle(image.gameObject, "Interactable", "Interactable");
+        toggle.GetComponent<RectTransform>().localPosition = Vector3.right * 30f;
+
+        toggle.OnValueChangedAsObservable()
+            .Subscribe(interactable => button.interactable = interactable);
+    }
+    #endregion
+}
+```
+
+![実行結果](https://github.com/tomoriaki/ugui-script-creator/blob/readme_images/Images/ss.png)
+
+## メソッド一覧
+| メソッド名 | 機能 | 備考 |
+|:-----------|:-----------|:-----------|
+| CreateCanvas | Canvasを生成する | EventSystemがシーン上に存在しない場合は生成する |
+| CreateEventSystem | EventSystemを生成する |  |
+| CreatePanel | Panelを生成する |  |
+| CreateButton | Buttonを生成する |  |
+| CreateText | Textを生成する |  |
+| CreateImage | Imageを生成する |  |
+| CreateRawImage | RawImageを生成する |  |
+| CreateSlider | Sliderを生成する |  |
+| CreateToggle | Toggleを生成する |  |
+| CreateInputField | InputFieldを生成する |  |
+| CreateDropdown | Dropdownを生成する |  |
+| CreateScrollView | ScrollViewを生成する |  |
 
 ## 配布ライセンス
 
