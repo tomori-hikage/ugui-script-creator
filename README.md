@@ -43,7 +43,7 @@ public class Example : MonoBehaviour
 }
 ```
 
-![実行結果](https://github.com/tomoriaki/ugui-script-creator/blob/readme_images/Images/ss.png)
+![実行結果](https://github.com/tomoriaki/ugui-script-creator/blob/readme_images/Images/result1.png)
 
 ```csharp
 using UnityEngine;
@@ -78,7 +78,7 @@ public class Example : MonoBehaviour
 }
 ```
 
-![実行結果](https://github.com/tomoriaki/ugui-script-creator/blob/readme_images/Images/ss.png)
+![実行結果](https://github.com/tomoriaki/ugui-script-creator/blob/readme_images/Images/result2.gif)
 
 ## メソッド一覧
 | メソッド名 | 機能 | 備考 |
