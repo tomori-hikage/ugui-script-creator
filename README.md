@@ -1,6 +1,7 @@
 # ugui-script-creator
 
 ugui-script-creatorはuGUIをスクリプトで構築するためのAssetです
+
 ※ 独自のスプライトを使用する場合やエディタ実行のみで使用する場合はResources/ugui-script-creatorフォルダを削除していただいても問題ありません
 
 ## 導入方法
