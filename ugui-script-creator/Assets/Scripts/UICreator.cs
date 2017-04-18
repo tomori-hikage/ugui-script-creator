@@ -1,5 +1,7 @@
 ﻿using UnityEngine.EventSystems;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 
 namespace UnityEngine.UI.Utility
@@ -53,6 +55,7 @@ namespace UnityEngine.UI.Utility
         {
             if (s_StandardResources.standard == null)
             {
+#if UNITY_EDITOR
                 s_StandardResources.standard = AssetDatabase.GetBuiltinExtraResource<Sprite>(kStandardSpritePath);
                 s_StandardResources.background = AssetDatabase.GetBuiltinExtraResource<Sprite>(kBackgroundSpritePath);
                 s_StandardResources.inputField = AssetDatabase.GetBuiltinExtraResource<Sprite>(kInputFieldBackgroundPath);
@@ -60,7 +63,16 @@ namespace UnityEngine.UI.Utility
                 s_StandardResources.checkmark = AssetDatabase.GetBuiltinExtraResource<Sprite>(kCheckmarkPath);
                 s_StandardResources.dropdown = AssetDatabase.GetBuiltinExtraResource<Sprite>(kDropdownArrowPath);
                 s_StandardResources.mask = AssetDatabase.GetBuiltinExtraResource<Sprite>(kMaskPath);
-                s_StandardResources.font = UnityEngine.Resources.GetBuiltinResource(typeof(Font), kFontPath) as Font;
+#else
+                s_StandardResources.standard = UnityEngine.Resources.Load<GameObject>("ugui-script-creator/UISprite").GetComponent<SpriteRenderer>().sprite;
+                s_StandardResources.background = UnityEngine.Resources.Load<GameObject>("ugui-script-creator/Background").GetComponent<SpriteRenderer>().sprite;
+                s_StandardResources.inputField = UnityEngine.Resources.Load<GameObject>("ugui-script-creator/InputFieldBackground").GetComponent<SpriteRenderer>().sprite;
+                s_StandardResources.knob = UnityEngine.Resources.Load<GameObject>("ugui-script-creator/Knob").GetComponent<SpriteRenderer>().sprite;
+                s_StandardResources.checkmark = UnityEngine.Resources.Load<GameObject>("ugui-script-creator/Checkmark").GetComponent<SpriteRenderer>().sprite;
+                s_StandardResources.dropdown = UnityEngine.Resources.Load<GameObject>("ugui-script-creator/DropdownArrow").GetComponent<SpriteRenderer>().sprite;
+                s_StandardResources.mask = UnityEngine.Resources.Load<GameObject>("ugui-script-creator/UIMask").GetComponent<SpriteRenderer>().sprite;
+#endif
+                s_StandardResources.font = UnityEngine.Resources.GetBuiltinResource<Font>(kFontPath);
             }
             return s_StandardResources;
         }
@@ -180,7 +192,7 @@ namespace UnityEngine.UI.Utility
             return image;
         }
 
-        public static Button CreateButton(GameObject parent = null, string name = "Button")
+        public static Button CreateButton(GameObject parent = null, string name = "Button", string defaultLabel = "Button")
         {
             Resources resources = GetStandardResources();
 
@@ -201,7 +213,7 @@ namespace UnityEngine.UI.Utility
             SetDefaultColorTransitionValues(bt);
 
             Text text = childText.AddComponent<Text>();
-            text.text = "Button";
+            text.text = defaultLabel;
             text.font = resources.font;
             text.alignment = TextAnchor.MiddleCenter;
             SetDefaultTextValues(text);
@@ -359,7 +371,7 @@ namespace UnityEngine.UI.Utility
             return scrollbar;
         }
 
-        public static Toggle CreateToggle(GameObject parent = null, string name = "Toggle")
+        public static Toggle CreateToggle(GameObject parent = null, string name = "Toggle", string defaultLabel = "Toggle")
         {
             Resources resources = GetStandardResources();
 
@@ -386,7 +398,7 @@ namespace UnityEngine.UI.Utility
             checkmarkImage.sprite = resources.checkmark;
 
             Text label = childLabel.AddComponent<Text>();
-            label.text = "Toggle";
+            label.text = defaultLabel;
             label.font = resources.font;
             SetDefaultTextValues(label);
 
