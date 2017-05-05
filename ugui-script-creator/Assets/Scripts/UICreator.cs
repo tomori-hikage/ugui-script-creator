@@ -8,7 +8,19 @@ namespace UnityEngine.UI.Utility
 {
     public static class UICreator
     {
+        #region enum
+
+        public enum LayoutGroupType
+        {
+            Grid,
+            Horizontal,
+            Vertical,
+        }
+
+        #endregion
+
         #region struct
+
         public struct Resources
         {
             public Sprite standard;
@@ -20,9 +32,11 @@ namespace UnityEngine.UI.Utility
             public Sprite mask;
             public Font font;
         }
+
         #endregion
 
         #region variable
+
         private const string kUILayerName = "UI";
 
         private const string kStandardSpritePath = "UI/Skin/UISprite.psd";
@@ -46,11 +60,13 @@ namespace UnityEngine.UI.Utility
         private static Color s_DefaultSelectableColor = new Color(1f, 1f, 1f, 1f);
         private static Color s_PanelColor = new Color(1f, 1f, 1f, 0.392f);
         private static Color s_TextColor = new Color(50f / 255f, 50f / 255f, 50f / 255f, 1f);
+
         #endregion
 
         #region method
 
         #region Helper
+
         static private Resources GetStandardResources()
         {
             if (s_StandardResources.standard == null)
@@ -125,9 +141,11 @@ namespace UnityEngine.UI.Utility
             for (int i = 0; i < t.childCount; i++)
                 SetLayerRecursively(t.GetChild(i).gameObject, layer);
         }
+
         #endregion
 
         #region CreateUI
+
         public static Canvas CreateCanvas(GameObject parent = null, string name = "Canvas")
         {
             // Root for the UI
@@ -226,7 +244,7 @@ namespace UnityEngine.UI.Utility
             return bt;
         }
 
-        public static Text CreateText(GameObject parent = null, string name = "Text")
+        public static Text CreateText(GameObject parent = null, string name = "Text", string defaultLabel = "Text")
         {
             Resources resources = GetStandardResources();
 
@@ -236,7 +254,7 @@ namespace UnityEngine.UI.Utility
             go.layer = LayerMask.NameToLayer(kUILayerName);
 
             Text lbl = go.AddComponent<Text>();
-            lbl.text = "New Text";
+            lbl.text = defaultLabel;
             lbl.font = resources.font;
             SetDefaultTextValues(lbl);
 
@@ -371,7 +389,7 @@ namespace UnityEngine.UI.Utility
             return scrollbar;
         }
 
-        public static Toggle CreateToggle(GameObject parent = null, string name = "Toggle", string defaultLabel = "Toggle")
+        public static Toggle CreateToggle(GameObject parent = null, string name = "Toggle", string defaultLabel = "Toggle", bool isOn = true)
         {
             Resources resources = GetStandardResources();
 
@@ -387,7 +405,7 @@ namespace UnityEngine.UI.Utility
 
             // Set up components
             Toggle toggle = toggleRoot.AddComponent<Toggle>();
-            toggle.isOn = true;
+            toggle.isOn = isOn;
 
             Image bgImage = background.AddComponent<Image>();
             bgImage.sprite = resources.standard;
@@ -427,7 +445,7 @@ namespace UnityEngine.UI.Utility
             return toggle;
         }
 
-        public static InputField CreateInputField(GameObject parent = null, string name = "InputField")
+        public static InputField CreateInputField(GameObject parent = null, string name = "InputField", string defaultPlaceholder = "Enter text...")
         {
             Resources resources = GetStandardResources();
 
@@ -454,7 +472,7 @@ namespace UnityEngine.UI.Utility
             SetDefaultTextValues(text);
 
             Text placeholder = childPlaceholder.AddComponent<Text>();
-            placeholder.text = "Enter text...";
+            placeholder.text = defaultPlaceholder;
             placeholder.font = resources.font;
             placeholder.fontStyle = FontStyle.Italic;
             // Make placeholder color half as opaque as normal text color.
@@ -645,7 +663,7 @@ namespace UnityEngine.UI.Utility
             return dropdown;
         }
 
-        public static ScrollRect CreateScrollView(GameObject parent = null, string name = "Scroll View")
+        public static ScrollRect CreateScrollView(GameObject parent = null, string name = "Scroll View", LayoutGroupType layoutGroupType = LayoutGroupType.Vertical)
         {
             Resources resources = GetStandardResources();
 
@@ -719,8 +737,24 @@ namespace UnityEngine.UI.Utility
             viewportImage.sprite = resources.mask;
             viewportImage.type = Image.Type.Sliced;
 
+            switch (layoutGroupType)
+            {
+                case LayoutGroupType.Grid:
+                    content.AddComponent<GridLayoutGroup>();
+                    break;
+
+                case LayoutGroupType.Horizontal:
+                    content.AddComponent<HorizontalLayoutGroup>();
+                    break;
+
+                case LayoutGroupType.Vertical:
+                    content.AddComponent<VerticalLayoutGroup>();
+                    break;
+            }
+
             return scrollRect;
         }
+
         #endregion
 
         #endregion
