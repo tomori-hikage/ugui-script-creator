@@ -1,10 +1,12 @@
-﻿using UnityEngine.EventSystems;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 
-namespace UnityEngine.UI.Utility
+namespace HC.UI
 {
     public static class UICreator
     {
