@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using HC.UI;
+using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UI.Utility;
 
 
 public class Example : MonoBehaviour
 {
     #region event
+
     private void Start()
     {
         // EventSystemが存在しない場合一緒に生成します
@@ -26,5 +27,6 @@ public class Example : MonoBehaviour
         dropdown.options.Add(new Dropdown.OptionData { text = "男性" });
         dropdown.options.Add(new Dropdown.OptionData { text = "女性" });
     }
+
     #endregion
 }
