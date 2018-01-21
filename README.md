@@ -10,7 +10,7 @@ ugui-script-creatorはuGUIをスクリプトで構築するためのAssetです
 
 ![実行結果](https://github.com/tomoriaki/ugui-script-creator/blob/readme_images/Images/result2.gif)
 
-## Installation
+## Install
 
 ugui-script-creator.unitypackageをプロジェクトにインポートしてください
 
