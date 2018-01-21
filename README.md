@@ -14,7 +14,7 @@ ugui-script-creatorはuGUIをスクリプトで構築するためのAssetです
 
 ugui-script-creator.unitypackageをプロジェクトにインポートしてください
 
-## Usage
+## Example
 
 ```csharp
 using UnityEngine;
