@@ -1,14 +1,20 @@
 # ugui-script-creator
 
+## Description
+
 ugui-script-creatorはuGUIをスクリプトで構築するためのAssetです
 
 ※ 独自のスプライトを使用する場合やエディタ実行のみで使用する場合はResources/ugui-script-creatorフォルダを削除していただいても問題ありません
 
-## 導入方法
+## Demo
+
+![実行結果](https://github.com/tomoriaki/ugui-script-creator/blob/readme_images/Images/result2.gif)
+
+## Installation
 
 ugui-script-creator.unitypackageをプロジェクトにインポートしてください
 
-## 使用方法
+## Usage
 
 ```csharp
 using UnityEngine;
@@ -80,7 +86,7 @@ public class Example : MonoBehaviour
 
 ![実行結果](https://github.com/tomoriaki/ugui-script-creator/blob/readme_images/Images/result2.gif)
 
-## メソッド一覧
+## Reference
 
 | メソッド名 | 機能 | 備考 |
 |:-----------|:-----------|:-----------|
@@ -97,11 +103,16 @@ public class Example : MonoBehaviour
 | CreateDropdown | Dropdownを生成する |  |
 | CreateScrollView | ScrollViewを生成する |  |
 
-## 配布ライセンス
+## Author
 
-MIT / X11ライセンスで公開いたします
+[Twitter: @tomoriaki](https://twitter.com/tomoriaki)
+[Qiita: @tomoriaki](https://qiita.com/tomoriaki)
 
-## 使用ライセンス
+## Distribution License
+
+[MIT](https://github.com/tomoriaki/ugui-script-creator/blob/master/LICENSE)
+
+## Use License
 
 ugui-script-creatorはUnity-Technologies / UIをベースに作成しています
 
