@@ -82,13 +82,13 @@ namespace HC.UI
                 s_StandardResources.dropdown = AssetDatabase.GetBuiltinExtraResource<Sprite>(kDropdownArrowPath);
                 s_StandardResources.mask = AssetDatabase.GetBuiltinExtraResource<Sprite>(kMaskPath);
 #else
-                s_StandardResources.standard = UnityEngine.Resources.Load<GameObject>("ugui-script-creator/UISprite").GetComponent<SpriteRenderer>().sprite;
-                s_StandardResources.background = UnityEngine.Resources.Load<GameObject>("ugui-script-creator/Background").GetComponent<SpriteRenderer>().sprite;
-                s_StandardResources.inputField = UnityEngine.Resources.Load<GameObject>("ugui-script-creator/InputFieldBackground").GetComponent<SpriteRenderer>().sprite;
-                s_StandardResources.knob = UnityEngine.Resources.Load<GameObject>("ugui-script-creator/Knob").GetComponent<SpriteRenderer>().sprite;
-                s_StandardResources.checkmark = UnityEngine.Resources.Load<GameObject>("ugui-script-creator/Checkmark").GetComponent<SpriteRenderer>().sprite;
-                s_StandardResources.dropdown = UnityEngine.Resources.Load<GameObject>("ugui-script-creator/DropdownArrow").GetComponent<SpriteRenderer>().sprite;
-                s_StandardResources.mask = UnityEngine.Resources.Load<GameObject>("ugui-script-creator/UIMask").GetComponent<SpriteRenderer>().sprite;
+                s_StandardResources.standard = UnityEngine.Resources.Load<GameObject>("UISprite").GetComponent<SpriteRenderer>().sprite;
+                s_StandardResources.background = UnityEngine.Resources.Load<GameObject>("Background").GetComponent<SpriteRenderer>().sprite;
+                s_StandardResources.inputField = UnityEngine.Resources.Load<GameObject>("InputFieldBackground").GetComponent<SpriteRenderer>().sprite;
+                s_StandardResources.knob = UnityEngine.Resources.Load<GameObject>("Knob").GetComponent<SpriteRenderer>().sprite;
+                s_StandardResources.checkmark = UnityEngine.Resources.Load<GameObject>("Checkmark").GetComponent<SpriteRenderer>().sprite;
+                s_StandardResources.dropdown = UnityEngine.Resources.Load<GameObject>("DropdownArrow").GetComponent<SpriteRenderer>().sprite;
+                s_StandardResources.mask = UnityEngine.Resources.Load<GameObject>("UIMask").GetComponent<SpriteRenderer>().sprite;
 #endif
                 s_StandardResources.font = UnityEngine.Resources.GetBuiltinResource<Font>(kFontPath);
             }
