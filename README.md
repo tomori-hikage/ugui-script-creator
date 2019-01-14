@@ -1,3 +1,8 @@
+[![license](https://img.shields.io/github/license/tomori-hikage/ugui-script-creator.svg?style=flat-square)](https://github.com/tomori-hikage/ugui-script-creator/blob/master/LICENSE)
+[![release](https://img.shields.io/github/release/tomori-hikage/ugui-script-creator.svg?style=flat-square)](https://github.com/tomori-hikage/ugui-script-creator/releases)
+[![GitHub](https://img.shields.io/github/followers/tomori-hikage.svg?label=@tomori-hikage&style=social)](https://github.com/tomori-hikage)
+[![Twitter](https://img.shields.io/twitter/follow/tomori_hikage.svg?label=@tomori_hikage&style=social)](https://twitter.com/tomori_hikage)
+
 # ugui-script-creator
 
 ## Description
@@ -102,16 +107,6 @@ public class Example : MonoBehaviour
 | CreateInputField | InputFieldを生成する |  |
 | CreateDropdown | Dropdownを生成する |  |
 | CreateScrollView | ScrollViewを生成する |  |
-
-## Author
-
-GitHub: [tomori-hikage](https://github.com/tomori-hikage)  
-Qiita: [@tomori_hikage](https://qiita.com/tomori_hikage)  
-Twitter: [@tomori_hikage](https://twitter.com/tomori_hikage)
-
-## Distribution License
-
-[MIT](https://github.com/tomori-hikage/ugui-script-creator/blob/master/LICENSE)
 
 ## Use License
 
